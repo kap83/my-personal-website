@@ -1,0 +1,61 @@
+body {background-color: white}
+
+h1 {color: powderblue;
+    font-weight: bold;
+    font-size: 60px;
+    margin: 0;
+    /* font-family: Calibri, Arial, Helvetica, sans-serif; */
+    text-align: center}
+
+#subheading {
+    color: green;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-top: 0;
+    font-family: Calibri, Arial, Helvetica, sans-serif
+}
+
+/* h2{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 20px; 
+} */
+
+ #to-read, #to-buy { 
+    border: 2px solid;
+    border-collapse: collapse;
+    float: left;
+    width: 40%;
+    margin-top: 300px; 
+}
+
+#to-read {
+    margin-left: 60px;
+}
+
+#to-buy {
+    margin-left: 200px;
+}
+
+
+
+.headingRow {
+    vertical-align: bottom;
+    margin-bottom: 35px;
+}
+
+
+.top-row {
+    border: 1px solid;
+    border-collapse: collapse;
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 1.5 em;
+    font-weight: bold;
+}
+
+.book {
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+
