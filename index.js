@@ -1,9 +1,9 @@
 //document.addEventListener("DOMContentLoaded", init)
 
-
+let snagForm = document.querySelector("form")
 
 function submitListner(bookData){
-document.querySelector("form").addEventListener("submit", e => {
+snagForm.addEventListener("submit", e => {
     e.preventDefault();
    let textBoxValue = e.target.textBox.value
   //console.log(textBoxValue)
@@ -12,49 +12,52 @@ document.querySelector("form").addEventListener("submit", e => {
         })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        //console.log(data)
         let dataArr = Object.values(data);
-        console.log(dataArr)
-        let resultValues = dataArr[3][0]//b/c i have 0, i only get the first option
-       console.log(resultValues)
-       for(let e in resultValues){
-        //console.log(e)
-        if(e === "title" || "author_name"){
-           let result = resultValues[e]
-           console.log(result)
-        } 
+        //console.log(dataArr) 
+        let docsArr = dataArr[3]
+   
+        docsArr.map((item, index) => {
+            //console.log(item) //object
+             // console.log(bookArr[0]) //wuthering heights
+            // console.log(bookArr[1]) //emily bronte
+            let bookArr = Object.values(item)
+            //console.log(bookArr)// array
+            let results = `Book: ${bookArr[0]}` + " " + `Author: ${bookArr[1]}`
+            displayResults(results)
         }
-       }
-    //    let test = Object.values(resultValues)
-    //    console.log(test)
-        
-
-
-      
-    //    //searchResults(resultValues)
-    );
+        )}  
+    )
     }
 )}
-
     submitListner();
 
-// function searchResults(book){
-//     let para = document.createElement("p")
-//     for(let obj of book){
-//         console.log(obj) //undefined
-//         console.log(book)
-//         let titleMatch = obj.title
-//         let authorMatch = obj.author_name
-//         //console.log(titleMatch || authorMatch)
-//         }
+// let displayHere = document.getElementById("searchResultsGoHere")
+// //console.log(displayHere)
+
+function displayResults(booksInfo){
+    //console.log(booksInfo) // provides the results from submitListner
+    let para = document.createElement("p")
+    para.innerText = booksInfo
+    let btn = document.createElement("button")
+    btn.setAttribute("id", "delete")
+    btn.innerText = "delete"
+    let displayHere = document.getElementById("searchResultsGoHere").appendChild(para).appendChild(btn)
+    snagForm.reset()
+    console.log(displayHere) //displayHere gets <button id="delete">delete</button>
+    displayHere.addEventListener("click", e => {
+    console.log(e) // e gets the pointer event
+    removeTitle(e)
+    })
+}
+
+function removeTitle(b){
+    console.log(b) //why is b undefined? 
+  //return b.remove()
+}
 
 
-    // book.forEach(e => {
-    //  console.log(e.title)
-     
-    // });
-//}
-
+removeTitle()
 
 
 
@@ -63,7 +66,33 @@ document.querySelector("form").addEventListener("submit", e => {
         // let found = targeting.title
         // 
         // para.innerText = found
-        // document.getElementById("searchResults").appendChild(para)
+        // 
+
+
+
+                        // for(let gettingThere in oneMore){
+                //     //console.log(gettingThere, oneMore[gettingThere])
+                //     let hmm = oneMore[gettingThere]["title"]
+                //     console.log(hmm)
+                    
+                // }
+       
+
+
+        // let test = docsArr.map(function(item, index, array){
+        //     console.log(item)//docs
+        //     console.log(index)//0
+        //     console.log(array)// 
+        // }
 
 
 //maybe something like if(title/author === textBoxValue return that info) put this in the getAPI function
+
+
+// come back to this:  let result = `Book: ${bookArr[0]}` + " " + `Author: ${authorArr[0]}` + " " + `Author: ${authorArr[1]}`
+
+ //let book = bookArr[0]
+            //let author = bookArr[1]
+            //let authorArr = Object.values(bookArr[1])
+            // console.log(authorArr[0])
+            // console.log(authorArr[1])
