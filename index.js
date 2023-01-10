@@ -1,98 +1,100 @@
-//document.addEventListener("DOMContentLoaded", init)
-
-let snagForm = document.querySelector("form")
-
-function submitListner(bookData){
-snagForm.addEventListener("submit", e => {
-    e.preventDefault();
-   let textBoxValue = e.target.textBox.value
-  //console.log(textBoxValue)
-    fetch(`https://openlibrary.org/search.json?q=${textBoxValue}&fields=title,author_name&limit=10`, {
-        method: "GET"
-        })
+document.addEventListener("DOMContentLoaded", () =>{
+  let snagForm = document.querySelector("form")
+  snagForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    let textBoxValue = e.target.textBox.value
+   //console.log(textBoxValue)
+    fetch(`http://openlibrary.org/search.json?author=${textBoxValue}&limit=10`, {
+      method: "GET"
+    })
     .then(res => res.json())
     .then(data => {
-        //console.log(data)
-        let dataArr = Object.values(data);
-        //console.log(dataArr) 
-        let docsArr = dataArr[3]
-   
-        docsArr.map((item, index) => {
-            //console.log(item) //object
-             // console.log(bookArr[0]) //wuthering heights
-            // console.log(bookArr[1]) //emily bronte
-            let bookArr = Object.values(item)
-            //console.log(bookArr)// array
-            let results = `Book: ${bookArr[0]}` + " " + `Author: ${bookArr[1]}`
-            displayResults(results)
-        }
-        )}  
-    )
-    }
-)}
-    submitListner();
+      //console.log(data) //get full author array
+      console.log(data.docs) //get book indices 
+      let booksArr = data.docs
+      
+      let displayHere = document.getElementById("searchResultsGoHere")
+      let table = document.createElement("table")
+      let headerRow = document.createElement("tr")
+      headerRow.setAttribute("class", "headerRows")
+      let header = document.createElement("th")
+     
+      let headers = ["Title ", "Author ", "Edit "]
 
-// let displayHere = document.getElementById("searchResultsGoHere")
-// //console.log(displayHere)
+      headers.forEach(headerText => {
+        console.log(headerText) //header array
+        let textNode = document.createTextNode(headerText)
+        header.appendChild(textNode)
+        headerRow.appendChild(header) //.appendChild(btn) <--does not go here
+      })
 
-function displayResults(booksInfo){
-    //console.log(booksInfo) // provides the results from submitListner
-    let para = document.createElement("p")
-    para.innerText = booksInfo
-    let btn = document.createElement("button")
-    btn.setAttribute("id", "delete")
-    btn.innerText = "delete"
-    let displayHere = document.getElementById("searchResultsGoHere").appendChild(para).appendChild(btn)
-    snagForm.reset()
-    console.log(displayHere) //displayHere gets <button id="delete">delete</button>
-    displayHere.addEventListener("click", e => {
-    console.log(e) // e gets the pointer event
-    removeTitle(e)
-    })
-}
+      table.appendChild(headerRow)
+      displayHere.appendChild(table)
 
-function removeTitle(b){
-    console.log(b) //why is b undefined? 
-  //return b.remove()
-}
+      for(let e in booksArr){
+        //console.log(e) //index numbers
+        let authorName = booksArr[e].author_name 
+        //console.log(authorName)//gives me the array with the author's name
+        let bookTitle = booksArr[e].title
+        //console.log(bookTitle)// gives me all the title
+        
+        let readNextBtn = document.createElement("button")
+        let wishListBtn = document.createElement("button")
+        let createRow = document.createElement("tr")
+        let titleCell = document.createElement("td")
+        titleCell.innerText = `${bookTitle}`
+        let authorCell = document.createElement("td")
+        authorCell.innerText = `${authorName}`
+        createRow.appendChild(titleCell)
+        createRow.appendChild(authorCell)
+        createRow.appendChild(readNextBtn).innerText = "Read Next"
+        createRow.appendChild(wishListBtn).innerText = "Wish List"
+        table.appendChild(createRow)
+        snagForm.reset()  
 
+        // btn.addEventListener("click", (e) => {
+          
+        // })
+      }
+      let snagClear = snagForm.querySelector("#bye")
+      
+      snagClear.addEventListener("click", e => {
+        displayHere.remove(displayHere)
+      }) 
 
-removeTitle()
-
-
-
-           //the below works
-        // let targeting = data.docs[0]
-        // let found = targeting.title
-        // 
-        // para.innerText = found
-        // 
-
+  })
 
 
-                        // for(let gettingThere in oneMore){
-                //     //console.log(gettingThere, oneMore[gettingThere])
-                //     let hmm = oneMore[gettingThere]["title"]
-                //     console.log(hmm)
-                    
-                // }
-       
+  
 
 
-        // let test = docsArr.map(function(item, index, array){
-        //     console.log(item)//docs
-        //     console.log(index)//0
-        //     console.log(array)// 
-        // }
 
 
-//maybe something like if(title/author === textBoxValue return that info) put this in the getAPI function
 
 
-// come back to this:  let result = `Book: ${bookArr[0]}` + " " + `Author: ${authorArr[0]}` + " " + `Author: ${authorArr[1]}`
 
- //let book = bookArr[0]
-            //let author = bookArr[1]
-            //let authorArr = Object.values(bookArr[1])
-            // console.log(authorArr[0])
-            // console.log(authorArr[1])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  })
+})
