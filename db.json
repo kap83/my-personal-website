@@ -1,0 +1,38 @@
+{
+  "books": {
+    "Wish_List": [
+      {
+        "id": 1,
+        "title": "The First Sister",
+        "author_name": "Linden A. Lewis"
+      },
+      {
+        "id": 2,
+        "title": "Harrow the Ninth",
+        "author_name": "Tamsyn Muir"
+      },
+      {
+        "id": 3,
+        "title": "Far Sector",
+        "author_name": "N.K. Jemisin"
+      }
+    ],
+    "Read_Next": [
+      {
+        "id": 1,
+        "title": "Wilder Girls",
+        "author_name": "Rory Power"
+      },
+      {
+        "id": 2,
+        "title": "Feast of Famine",
+        "author_name": "Naomi Novik"
+      },
+      {
+        "id": 3,
+        "title": "The Left Hand of Darkness",
+        "author_name": "Ursula K Le Guin"
+      }
+    ]
+  }
+}
