@@ -3,3 +3,4 @@ Author Search uses Open Library’s API to provide you with a short list of book
 
 Did none of those titles seem interesting to you? Just click clear and search again! 
 
+![Project](https://user-images.githubusercontent.com/111032375/212492232-75938c2c-c024-4e07-9f0c-a2641c9b9fe8.gif)
