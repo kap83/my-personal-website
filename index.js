@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () =>{
   snagForm.addEventListener("submit", (e) => {
     e.preventDefault()
     let textBoxValue = e.target.textBox.value
-    fetch(`http://openlibrary.org/search.json?author=${textBoxValue}&limit=5`, {
+    fetch(`http://openlibrary.org/search.json?author=${textBoxValue}&limit=2`, {
       method: "GET"
     })
     .then(res => res.json())
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () =>{
       let displayHere = document.getElementById("searchResultsGoHere")
       let table = document.createElement("table")
       let headerRow = document.createElement("tr")
-      headerRow.setAttribute("class", "headerRows")
       let createCell = document.createElement("th")
      
       let headers = ["Title: ", " Author:"]
