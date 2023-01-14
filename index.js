@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         snagForm.reset()
       })
 
-      let snagClear = snagForm.querySelector("#revert")
+      let snagClear = snagForm.querySelector("#clearField")
       snagClear.addEventListener("click", e => {
         displayHere.remove(displayHere)
       }) 
