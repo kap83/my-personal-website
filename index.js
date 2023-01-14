@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       let displayHere = document.getElementById("searchResultsGoHere")
       let table = document.createElement("table")
    
-      displayHere.appendChild(table)
+      displayHere.append(table)
       
       booksArr.forEach(book => {
         console.log(book.author_name)
