@@ -19,12 +19,9 @@ document.addEventListener("DOMContentLoaded", () =>{
       let createCell = document.createElement("th")
      
       let headers = ["Title: ", " Author:"]
-      console.log(headers[0])
 
       headers.forEach(headerText => {
-        // console.log(headerText[0])
         let textCell = document.createTextNode(headerText)
-        // let textCelltest = document.createTextNode(headerText)
         createCell.appendChild(textCell)
         headerRow.appendChild(createCell)
       })
@@ -47,8 +44,6 @@ document.addEventListener("DOMContentLoaded", () =>{
         table.appendChild(createRow)
         snagForm.reset() 
       }
-
-    //  document.querySelector("th").style.padding = "20px"
 
       let snagClear = snagForm.querySelector("#bye")
       snagClear.addEventListener("click", e => {
