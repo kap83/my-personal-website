@@ -1,11 +1,13 @@
 body {background-color: white}
 
-h1 {color: powderblue;
+h1 {
+    color: powderblue;
     font-weight: bold;
     font-size: 60px;
     margin: 0;
-    /* font-family: Calibri, Arial, Helvetica, sans-serif; */
-    text-align: center}
+    font-family: Calibri, Arial, Helvetica, sans-serif; 
+    text-align: center
+}
 
 h2 {
     color: rgb(14, 15, 14);
@@ -16,46 +18,14 @@ h2 {
     font-family: Calibri, Arial, Helvetica, sans-serif
 }
 
- #to-read, #wishList { 
-    border: 2px solid;
-    border-collapse: collapse;
-    /* float: left; */
-    width: 40%;
-    margin-top: 300px; 
-}
-
-/* #to-read {
-    margin-left: 60px;
-} */
-
-/* #wishList {
-    margin-left: 200px;
-} */
 
 
-
-.headingRow {
-    vertical-align: bottom;
-    margin-bottom: 35px;
+th {
+    word-spacing: 180px;
 }
 
 
-.top-row {
-    border: 1px solid;
-    border-collapse: collapse;
+table {
     font-family: Calibri, Arial, Helvetica, sans-serif;
-    font-size: 1.5 em;
-    font-weight: bold;
-}
-
-.bookRN, .bookWL {
-    border: 1px solid;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-
-#headerRows {
-   
-    padding-right: 300px;
+    font-size: 20px;
 }
