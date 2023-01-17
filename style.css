@@ -2,8 +2,6 @@ body {background-color: rgb(249, 249, 249)}
 
 h1 {
     color: powderblue;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
     font-weight: bold;
     font-size: 60px;
     margin: 0;
